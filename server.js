@@ -53,9 +53,6 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/chat", chatRouter);
 
-// use error handler
-app.use(errorHandler);
-
 // static folder
 app.use(express.static(path.join(__dirname, "/whatsapp/dist")));
 
