@@ -1,0 +1,53 @@
+@font-face {
+  font-family: Helvetica;
+  src: url("../src//assets/fonts/Helvetica.ttf");
+}
+/* @font-face {
+  font-family: Helvetica;
+  src: url("../src//assets/fonts/Helvetica-Bold.ttf");
+}
+@font-face {
+  font-family: Helvetica;
+  src: url("../src//assets/fonts/Helvetica-BoldOblique.ttf");
+}
+@font-face {
+  font-family: Helvetica;
+  src: url("../src//assets/fonts/Helvetica-Oblique.ttf");
+}
+@font-face {
+  font-family: Helvetica;
+  src: url("../src//assets/fonts/helvetica-compressed-5871d14b6903a.otf");
+}
+@font-face {
+  font-family: Helvetica;
+  src: url("../src//assets/fonts/helvetica-light-587ebe5a59211.ttf");
+}
+@font-face {
+  font-family: Helvetica;
+  src: url("../src//assets/fonts/helvetica-rounded-bold-5871d05ead8de.otf");
+} */
+
+* {
+  font-family: Helvetica;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+li,
+span,
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c6c6c6;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
