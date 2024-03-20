@@ -6,12 +6,9 @@ export const getAllChats = createAsyncThunk(
   "chat/getAllChats",
   async (receiverId) => {
     try {
-      const response = await axios.get(
-        `http://localhost:5050/api/v1/chat/${receiverId}`,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.get(`/api/v1/chat/${receiverId}`, {
+        withCredentials: true,
+      });
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -25,7 +22,7 @@ export const createMessage = createAsyncThunk(
   async ({ senderId, receiverId, body }) => {
     try {
       const response = await axios.post(
-        `http://localhost:5050/api/v1/chat/${senderId}/${receiverId}`,
+        `/api/v1/chat/${senderId}/${receiverId}`,
         body,
         {
           withCredentials: true,

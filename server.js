@@ -10,7 +10,11 @@ import { errorHandler } from "./middlewares/errorhandler.js";
 import { mongoBDConnect } from "./config/db.js";
 import { Server } from "socket.io";
 import { createServer } from "http";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // initialization
 const app = express();
 dotenv.config();
@@ -44,9 +48,6 @@ io.on("connection", (socket) => {
 // set environment vars
 const PORT = process.env.PORT || 9090;
 
-// static folder
-app.use(express.static("public"));
-
 // routing
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
@@ -54,6 +55,13 @@ app.use("/api/v1/chat", chatRouter);
 
 // use error handler
 app.use(errorHandler);
+
+// static folder
+app.use(express.static(path.join(__dirname, "/whatsapp/dist")));
+
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/whatsapp/dist/index.html"))
+);
 
 // app listen
 app.listen(PORT, () => {

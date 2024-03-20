@@ -5,11 +5,9 @@ import toast from "react-hot-toast";
 // Register User
 export const createUser = createAsyncThunk("auth/createUser", async (data) => {
   try {
-    const response = await axios.post(
-      `http://localhost:5050/api/v1/auth/register`,
-      data,
-      { withCredentials: true }
-    );
+    const response = await axios.post(`/api/v1/auth/register`, data, {
+      withCredentials: true,
+    });
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -21,7 +19,7 @@ export const activateUserAccountByOTP = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        `http://localhost:5050/api/v1/auth/activation-by-otp/${data.token}`,
+        `/api/v1/auth/activation-by-otp/${data.token}`,
         { otp: data.otp },
         { withCredentials: true }
       );
@@ -37,7 +35,7 @@ export const activateUserAccountByLink = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        `http://localhost:5050/api/v1/auth/activation-by-link/${data}`,
+        `/api/v1/auth/activation-by-link/${data}`,
         { withCredentials: true }
       );
       return response.data;
@@ -50,11 +48,9 @@ export const activateUserAccountByLink = createAsyncThunk(
 // Login User
 export const loginUser = createAsyncThunk("auth/loginUser", async (data) => {
   try {
-    const response = await axios.post(
-      `http://localhost:5050/api/v1/auth/login`,
-      data,
-      { withCredentials: true }
-    );
+    const response = await axios.post(`/api/v1/auth/login`, data, {
+      withCredentials: true,
+    });
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -64,7 +60,7 @@ export const loginUser = createAsyncThunk("auth/loginUser", async (data) => {
 // Get LogedIn User
 export const getLogedInUser = createAsyncThunk("auth/logedInUser", async () => {
   try {
-    const response = await axios.get(`http://localhost:5050/api/v1/auth/me`, {
+    const response = await axios.get(`/api/v1/auth/me`, {
       withCredentials: true,
     });
     return response.data;
@@ -75,11 +71,9 @@ export const getLogedInUser = createAsyncThunk("auth/logedInUser", async () => {
 // Logout User
 export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
   try {
-    const response = await axios.post(
-      `http://localhost:5050/api/v1/auth/logout`,
-      "",
-      { withCredentials: true }
-    );
+    const response = await axios.post(`/api/v1/auth/logout`, "", {
+      withCredentials: true,
+    });
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -91,7 +85,7 @@ export const resendActivateLinkOTP = createAsyncThunk(
   async (auth) => {
     try {
       const response = await axios.post(
-        `http://localhost:5050/api/v1/auth/resend-link-otp`,
+        `/api/v1/auth/resend-link-otp`,
         { auth },
         { withCredentials: true }
       );
@@ -107,7 +101,7 @@ export const verifyUserSetNewPassword = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        `http://localhost:5050/api/v1/auth/verify-user/${data.token}`,
+        `/api/v1/auth/verify-user/${data.token}`,
         { otp: data.otp },
         { withCredentials: true }
       );
@@ -123,7 +117,7 @@ export const setNewPassword = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        `http://localhost:5050/api/v1/auth/new-password/${data.token}`,
+        `/api/v1/auth/new-password/${data.token}`,
         { password: data.password },
         { withCredentials: true }
       );
@@ -140,7 +134,7 @@ export const changeProfilePhoto = createAsyncThunk(
   async ({ id, data }) => {
     try {
       const response = await axios.put(
-        `http://localhost:5050/api/v1/auth/change-profile-photo/${id}`,
+        `/api/v1/auth/change-profile-photo/${id}`,
         data,
         {
           withCredentials: true,
@@ -158,7 +152,7 @@ export const changeProfileInfo = createAsyncThunk(
   async ({ id, data }) => {
     try {
       const response = await axios.put(
-        `http://localhost:5050/api/v1/auth/change-profile-info/${id}`,
+        `/api/v1/auth/change-profile-info/${id}`,
         data,
         {
           withCredentials: true,
@@ -176,13 +170,9 @@ export const updateUser = createAsyncThunk(
   "auth/updateUser",
   async ({ id, data }) => {
     try {
-      const response = await axios.put(
-        `http://localhost:5050/api/v1/auth/update/${id}`,
-        data,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.put(`/api/v1/auth/update/${id}`, data, {
+        withCredentials: true,
+      });
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);

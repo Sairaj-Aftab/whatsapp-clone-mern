@@ -8,7 +8,8 @@
     "server": "nodemon server.js",
     "socket": "npm start --prefix socket",
     "client": "npm run dev --prefix whatsapp",
-    "start": "concurrently \"npm run server\" \"npm run socket\" \"npm run client\""
+    "start": "concurrently \"npm run server\" \"npm run socket\" \"npm run client\"",
+    "build": "npm install --prefix ./whatsapp && npm run build --prefix ./whatsapp && npm install"
   },
   "keywords": [],
   "author": "",

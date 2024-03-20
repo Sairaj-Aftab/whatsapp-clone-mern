@@ -14,6 +14,7 @@ import {
   setMessageEmpty,
 } from "../../features/chat/chatSlice";
 import BasicUserProfile from "../../components/BasicUserProfile";
+import Loader from "../../components/Loader";
 
 function Home() {
   const dispatch = useDispatch();
@@ -71,6 +72,7 @@ function Home() {
               <div className="welcome-banner">
                 <img src={whatsappBanner} alt="" />
               </div>
+              // <Loader />
             )}
           </div>
           {basicUserInfo && (
