@@ -9,7 +9,7 @@
     "socket": "npm start --prefix socket",
     "client": "npm run dev --prefix whatsapp",
     "start": "concurrently \"npm run server\" \"npm run socket\" \"npm run client\"",
-    "build": "npm install --prefix ./whatsapp && npm run build --prefix ./whatsapp && npm install --prefix ./socket && npm start --prefix socket && npm install"
+    "build": "npm install --prefix ./whatsapp && npm run build --prefix ./whatsapp && npm install"
   },
   "keywords": [],
   "author": "",
