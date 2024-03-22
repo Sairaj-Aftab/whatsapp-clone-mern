@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import userRouter from "./route/user.js";
 import authRouter from "./route/auth.js";
 import chatRouter from "./route/chat.js";
-import { errorHandler } from "./middlewares/errorhandler.js";
 import { mongoBDConnect } from "./config/db.js";
 import { Server } from "socket.io";
 import { createServer } from "http";
